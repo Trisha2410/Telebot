@@ -43,5 +43,3 @@ Files/resources of our project:
   - def db_insertplantype(plan)                   :   Establishes db connection and insert the plan_type which is either prepaid or postpaid in the table “plan_type"
   - def fetchresult()                             :   Establishes db connection and retrieves the traffis based on the values of – plan_type, budget and data_limit.
   - def db_insertbudget(msg)                      :   Establishes db connection and insert the budget which is  a numerical value in the table “budget”
-
-Please refer the Screenshot folder.
