@@ -23,3 +23,25 @@ Files/resources of our project:
 - Telebot.py		    : 	This is the Python script in which we implemented GUI For our chatbot. Users can easily interact with the bot.
 - Telebot.db		    :	  The Database, containing the Tariff details.
 - database_code.py	: 	This is a python script which will create all the required tables	For the project.
+
+ Functions defined in Telebot.py                  :       Functionality of the Functions
+  - def clean_up_sentence(sentence)               :   Takes customer’s input, find the root word and return a list of words “sentence_words”.
+  - def bow(sentence, words, show_details=True)   :   Takes customer’s input, calls the “clean_up_sentence(sentence)” and uses the “sentence_words” compare it with the list of words 
+                                                      from intens.json and returns a numpy array of 0’s and 1’s (1 represent match).
+  - def predict_class(sentence, model)            :   Load the model calls the “def bow(sentence, words, show_details=True)”  passes the  “numpy array ” to the model  and fetch the 
+                                                      most probable “tag” along with its probability and returns a list of tag with its probability
+  - def chatbot_response(msg)                     :   Takes customer input, calls the “def predict_class(sentence, model)” and then based on the conditions calls the DB functions 
+                                                      for insertion and selection of data from the db and finally  calls the “def getResponse(ints, intents_json)” to  get the  
+                                                      response and sends it to the “def send(*args)” to  display on the Chat-log
+  - def getResponse(ints, intents_json)           :   Based of the tag identified by the “def predict_class(sentence, model)”  selects a random response  and pass it to the “def                       
+                                                      chatbot_response(msg)” function
+  - def clear_label_image()                       :   Small function to remove the image displayed in the Chat-log window initially
+  - def send(*args)                               :   Called whenever customer, presses “Enter key” or clicks the Send Button
+  - def clock()                                   :   To display the digital clock.
+  - def date()                                    :   To display the current date.
+  - def db_insertdata(msg)                        :   Establishes db connection and insert the data_limit  which is  a numerical value in the in the table “data_limit”
+  - def db_insertplantype(plan)                   :   Establishes db connection and insert the plan_type which is either prepaid or postpaid in the table “plan_type"
+  - def fetchresult()                             :   Establishes db connection and retrieves the traffis based on the values of – plan_type, budget and data_limit.
+  - def db_insertbudget(msg)                      :   Establishes db connection and insert the budget which is  a numerical value in the table “budget”
+
+Please refer the Screenshot folder.
